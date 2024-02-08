@@ -1,5 +1,6 @@
 console.log("Web Serverni boshlash");
 const express = require("express");
+const res = require("express/lib/response");
 const app = express();
 const http = require("http");
 const fs = require("fs");
@@ -24,6 +25,7 @@ app.use(express.urlencoded({extended: true}));  // bu html dan traditional reque
 
 // 3  Views code
 app.set("views", "views");
+// app.set('views', join(author, 'views'));
 app.set("view engine", "ejs");
 
 // 4 Routing code
@@ -37,7 +39,7 @@ app.set("view engine", "ejs");
 //
 
 app.post("/create-item", (req, res) => {
-    console.log(req.body);
+    console.log({finished:well});
     // res.json({ test: "success"});
 });
 
