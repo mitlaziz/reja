@@ -23,13 +23,14 @@ app.use(express.urlencoded({extended: true}));  // bu html dan traditional reque
 // 2  Session
 
 
-// 3  Views code
+// 3  Views code  setdagi front end view folderning in means
 app.set("views", "views");
 // app.set('views', join(author, 'views'));
-app.set("view engine", "ejs");
+app.set("view engine", "ejs");  //view fronted matori ejs da
 
 // 4 Routing code
 
+// app.get malumotni oladi va ozi jonatadi
 // app.get("/hello", function (req, res) {
 //     res.end(`<h1 style="background: red">"HELLO WORLD"</h1>`);// });
 
@@ -37,7 +38,7 @@ app.set("view engine", "ejs");
 //     res.end(`<h1 style="background: green">"sovgalar bolimidasiz"</h1>`);
 // });
 //
-
+ // app.post ozi bn information olib keladi va ejs formatdagi dataga malumot beradi
 app.post("/create-item", (req, res) => {
     console.log({finished:well});
     // res.json({ test: "success"});
@@ -53,7 +54,7 @@ app.get("/", function name(req, res) {
     res.render("harid");
 }) ;
 
-const server = http.createServer(app);
+const server = http.createServer(app);  //bu single thread. mana shu yerda asosiy portlash boladi
 let PORT = 3000;
 server.listen(PORT, function() {
     console.log(`The server is running successfully on port: ${PORT}`);
