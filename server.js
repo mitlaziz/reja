@@ -1,62 +1,31 @@
-console.log("Web Serverni boshlash");
-const express = require("express");
-const res = require("express/lib/response");
-const app = express();
 const http = require("http");
-// const fs = require("fs");
+const mongodb = require("mongodb");
 
-// let user;
-// fs.readFile("database/user.json", "utf8", (err, data) => {
-//     if(err) {
-//         console.log("ERROR:", err);
-//     } else {
-//         user = JSON.parse(data);
-//     }
-// });
+let db;
+const connectionString = "mongodb+srv://mitmax93:WvFsPADDs5vhCen4@cluster0.ntofc2t.mongodb.net/Reja";
 
-// 1 Kirish code
-app.use(express.static("public")); //har qanday browserdan kirib kelayotgan zaproslar un public folderi ochiq degan means.public folderni kora oladi degani. google request qilayotgan payti clientlarga ochib beryapmiz. publicni ichiga kk boladigan css, styling, imagelarni joylashtiramiz.
-app.use(express.json());  // bu kirib kelayotgan json formatdagi datani object korinishiga otkazib beradi.
-app.use(express.urlencoded({extended: true}));  // bu html dan traditional request form qilish instrumenti. if formdan smth tortsak bu server qabul qilib oladi.
+mongodb.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}, (err, client) => {
+   if(err) console.log("ERROR on connection MongoDB");
+   else {
+    console.log("MongoDB connectio succeed");
+    module.exports = client;
 
-// 2  Session
-
-// 3  Views code  setdagi front end view folderning in means
-app.set("views", "views");
-// app.set('views', join(author, 'views'));
-app.set("view engine", "ejs");  //view fronted matori ejs da
-
-// 4 Routing code
-
-// app.get malumotni oladi va ozi jonatadi
-// app.get("/hello", function (req, res) {
-//     res.end(`<h1 style="background: red">"HELLO WORLD"</h1>`);// });
-
-// app.get("/gift", function (req, res) {
-//     res.end(`<h1 style="background: green">"sovgalar bolimidasiz"</h1>`);
-// });
-//
- // app.post ozi bn information olib keladi va ejs formatdagi dataga malumot beradi
-app.post("/create-item", (req, res) => {
-    console.log({finished:well});
-    // res.json({ test: "success"});
-});
-
-
-// app.get("/author", (req, res) => {
-//     res.render("author", {user: user});
-// });
-
-
-app.get("/", function name(req, res) {
-    res.render("reja");
-}) ;
-
-const server = http.createServer(app);  //bu single thread. mana shu yerda asosiy portlash boladi
+    const app = require("./app");
+    const server = http.createServer(app);  //bu single thread. mana shu yerda asosiy portlash boladi
 let PORT = 3000;
 server.listen(PORT, function() {
     console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
 });
+   } 
+});
 
 
-//biz expressni how qurishni organdik, session hali kk emas, viewni shakllantirdik va routeni shakllantirib serverga pass did. serverni http by did. serverni 3000 chi portga did va hammasi togri bolsa 
+
+// const server = http.createServer(app);  //bu single thread. mana shu yerda asosiy portlash boladi
+// let PORT = 3000;
+// server.listen(PORT, function() {
+//     console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
+// });
