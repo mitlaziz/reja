@@ -3,25 +3,23 @@ const express = require("express");
 const res = require("express/lib/response");
 const app = express();
 const http = require("http");
-const fs = require("fs");
+// const fs = require("fs");
 
-let user;
-fs.readFile("database/user.json", "utf8", (err, data) => {
-    if(err) {
-        console.log("ERROR:", err);
-    } else {
-        user = JSON.parse(data);
-    }
-});
+// let user;
+// fs.readFile("database/user.json", "utf8", (err, data) => {
+//     if(err) {
+//         console.log("ERROR:", err);
+//     } else {
+//         user = JSON.parse(data);
+//     }
+// });
 
 // 1 Kirish code
 app.use(express.static("public")); //har qanday browserdan kirib kelayotgan zaproslar un public folderi ochiq degan means.public folderni kora oladi degani. google request qilayotgan payti clientlarga ochib beryapmiz. publicni ichiga kk boladigan css, styling, imagelarni joylashtiramiz.
 app.use(express.json());  // bu kirib kelayotgan json formatdagi datani object korinishiga otkazib beradi.
 app.use(express.urlencoded({extended: true}));  // bu html dan traditional request form qilish instrumenti. if formdan smth tortsak bu server qabul qilib oladi.
 
-
 // 2  Session
-
 
 // 3  Views code  setdagi front end view folderning in means
 app.set("views", "views");
@@ -45,19 +43,19 @@ app.post("/create-item", (req, res) => {
 });
 
 
-app.get("/author", (req, res) => {
-    res.render("author", {user: user});
-});
+// app.get("/author", (req, res) => {
+//     res.render("author", {user: user});
+// });
 
 
 app.get("/", function name(req, res) {
-    res.render("harid");
+    res.render("reja");
 }) ;
 
 const server = http.createServer(app);  //bu single thread. mana shu yerda asosiy portlash boladi
 let PORT = 3000;
 server.listen(PORT, function() {
-    console.log(`The server is running successfully on port: ${PORT}`);
+    console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
 });
 
 
