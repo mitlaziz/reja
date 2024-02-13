@@ -1,14 +1,27 @@
-function main(letter, word) {
-    let number = 0
-    for (let i = 0; i < word.length; i++) {
-        if(word[i] === letter) {
-            number = number + 1;
+// TASK "B"
+function findNum(a) {
+    let count = 0;
+    for(let b = 0; b < a.length; b++) {
+        if(! isNaN(a[b])) {
+            count++
         }
     }
-    return number;
+     return count
 }
-let result = main("o", "ortgayolyoq");
-console.log(result);
+console.log(findNum("5iwlagan25tiwlaydi123"));
+
+//TASK "A"
+// function main(letter, word) {
+//     let number = 0
+//     for (let i = 0; i < word.length; i++) {
+//         if(word[i] === letter) {
+//             number = number + 1;
+//         }
+//     }
+//     return number;
+// }
+// let result = main("o", "ortgayolyoq");
+// console.log(result);
 
 
 

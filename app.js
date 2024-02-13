@@ -42,7 +42,17 @@ app.set("view engine", "ejs");  //view fronted matori ejs da
 //
  // app.post ozi bn information olib keladi va ejs formatdagi dataga malumot beradi
 app.post("/create-item", (req, res) => {
-    console.log({finished:well});
+    console.log("user entered /create-item");
+    const new_reja = req.body.reja;
+    db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+        if(err) {
+            console.log(err);
+            res.end('something went wrong');
+        } else {
+            res.end("successfully added");
+        }
+    });
+    //console.log({finished:well});
     // res.json({ test: "success"});
 });
 
@@ -53,7 +63,15 @@ app.post("/create-item", (req, res) => {
 
 
 app.get("/", function name(req, res) {
-    res.render("reja");
+    console.log('user entered /');
+    db.collection("plans").find().toArray((err, data) => {
+        if(err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            res.render("reja", {items: data });
+        }
+    });
 }) ;
 
 module.exports = app;
