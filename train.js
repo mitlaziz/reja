@@ -1,14 +1,81 @@
-// TASK "B"
-function findNum(a) {
-    let count = 0;
-    for(let b = 0; b < a.length; b++) {
-        if(! isNaN(a[b])) {
-            count++
-        }
+//TAsk C
+
+let now = new Date();
+let hour = now.getHours();
+let minute = now.getMinutes();
+minute = minute < 10 ? "0" + minute : minute;
+
+class Shop {
+  constructor(kebab, non, chay) {
+    this.kebab = kebab;
+    this.non = non;
+    this.chay = chay;
+  }
+
+  sotish(items, amount) {
+    // kebab
+    if (items === "kebab") {
+      if (this.kebab >= amount) {
+        this.kebab -= amount;
+      }
     }
-     return count
+
+    // non
+    if (items === "non") {
+      if (this.non >= amount) {
+        this.non -= amount;
+      }
+    }
+
+    // chay
+
+    if (items === "chay") {
+      if (this.chay >= amount) {
+        this.chay -= amount;
+      }
+    }
+
+    return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay bor holos!`;
+  }
+
+  qabul(items, amount) {
+    // kebab
+    if (items === "kebab") {
+      this.kebab += amount;
+    }
+
+    // non
+    if (items === "non") {
+      this.non += amount;
+    }
+
+    // chay
+    if (items === "chay") {
+      this.chay += amount;
+    }
+    return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay bor holos!`;
+  }
+
+  qoldiq() {
+    return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay qolgan!`;
+  }
 }
-console.log(findNum("5iwlagan25tiwlaydi123"));
+
+const trade = new Shop(6, 2, 4);
+console.log(trade.sotish("chay", 2));
+console.log(trade.qabul("non", 2));
+
+// // TASK "B"
+// function findNum(a) {
+//     let count = 0;
+//     for(let b = 0; b < a.length; b++) {
+//         if(! isNaN(a[b])) {
+//             count++
+//         }
+//     }
+//      return count
+// }
+// console.log(findNum("5iwlagan25tiwlaydi123"));
 
 //TASK "A"
 // function main(letter, word) {

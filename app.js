@@ -17,6 +17,7 @@ const app = express();
 
 //MongoDB chaqirish
 const db = require("./server").db();
+const mongodb = require("mongodb");
 
 // 1 Kirish code
 app.use(express.static("public")); //har qanday browserdan kirib kelayotgan zaproslar un public folderi ochiq degan means.public folderni kora oladi degani. google request qilayotgan payti clientlarga ochib beryapmiz. publicni ichiga kk boladigan css, styling, imagelarni joylashtiramiz.
@@ -59,10 +60,14 @@ app.post("/create-item", (req, res) => {
     // res.json({ test: "success"});
 });
 
+app.post("/delete-item", (req, res) => {
+    const id = req.body.id;
+    db.collection("plans").deleteOne({_id: new mongodb.ObjectId(id)}, 
+    function(err, data) {
+        res.json({state: "success"});
+    })
+});
 
-// app.get("/author", (req, res) => {
-//     res.render("author", {user: user});
-// });
 
 
 app.get("/", function name(req, res) {
