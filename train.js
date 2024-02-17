@@ -1,69 +1,82 @@
-//TAsk C
+// TASK D
 
-let now = new Date();
-let hour = now.getHours();
-let minute = now.getMinutes();
-minute = minute < 10 ? "0" + minute : minute;
+function check(string1, string2) {
 
-class Shop {
-  constructor(kebab, non, chay) {
-    this.kebab = kebab;
-    this.non = non;
-    this.chay = chay;
-  }
+ const str1 = string1.split("").sort().join("");
+ const str2 = string2.split("").sort().join("");
 
-  sotish(items, amount) {
-    // kebab
-    if (items === "kebab") {
-      if (this.kebab >= amount) {
-        this.kebab -= amount;
-      }
-    }
-
-    // non
-    if (items === "non") {
-      if (this.non >= amount) {
-        this.non -= amount;
-      }
-    }
-
-    // chay
-
-    if (items === "chay") {
-      if (this.chay >= amount) {
-        this.chay -= amount;
-      }
-    }
-
-    return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay bor holos!`;
-  }
-
-  qabul(items, amount) {
-    // kebab
-    if (items === "kebab") {
-      this.kebab += amount;
-    }
-
-    // non
-    if (items === "non") {
-      this.non += amount;
-    }
-
-    // chay
-    if (items === "chay") {
-      this.chay += amount;
-    }
-    return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay bor holos!`;
-  }
-
-  qoldiq() {
-    return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay qolgan!`;
-  }
+ return str1 === str2;
 }
 
-const trade = new Shop(6, 2, 4);
-console.log(trade.sotish("chay", 2));
-console.log(trade.qabul("non", 2));
+console.log(check("hasan", "sahna"));
+
+
+
+// //TAsk C
+// let now = new Date();
+// let hour = now.getHours();
+// let minute = now.getMinutes();
+// minute = minute < 10 ? "0" + minute : minute;
+
+// class Shop {
+//   constructor(kebab, non, chay) {
+//     this.kebab = kebab;
+//     this.non = non;
+//     this.chay = chay;
+//   }
+
+//   sotish(items, amount) {
+//     // kebab
+//     if (items === "kebab") {
+//       if (this.kebab >= amount) {
+//         this.kebab -= amount;
+//       }
+//     }
+
+//     // non
+//     if (items === "non") {
+//       if (this.non >= amount) {
+//         this.non -= amount;
+//       }
+//     }
+
+//     // chay
+
+//     if (items === "chay") {
+//       if (this.chay >= amount) {
+//         this.chay -= amount;
+//       }
+//     }
+
+//     return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay bor holos!`;
+//   }
+
+//   qabul(items, amount) {
+//     // kebab
+//     if (items === "kebab") {
+//       this.kebab += amount;
+//     }
+
+//     // non
+//     if (items === "non") {
+//       this.non += amount;
+//     }
+
+//     // chay
+//     if (items === "chay") {
+//       this.chay += amount;
+//     }
+//     return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay bor holos!`;
+//   }
+
+//   qoldiq() {
+//     return `hozir ${hour}:${minute} da ${this.kebab} ta kebab, ${this.non} ta non va ${this.chay} ta chay qolgan!`;
+//   }
+// }
+
+// const trade = new Shop(6, 2, 4);
+// console.log(trade.sotish("chay", 2));
+// console.log(trade.qabul("non", 2));
 
 // // TASK "B"
 // function findNum(a) {
