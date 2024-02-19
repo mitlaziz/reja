@@ -1,14 +1,31 @@
-// TASK D
-
-function check(string1, string2) {
-
- const str1 = string1.split("").sort().join("");
- const str2 = string2.split("").sort().join("");
-
- return str1 === str2;
+// Task E
+//2-usul
+let string = "Devex";
+let newString = '';
+for(i = string.length-1; i >= 0; i--) {
+    newString += string[i];
 }
+console.log(newString);
 
-console.log(check("hasan", "sahna"));
+//1-usul
+//const str = "uzbekistan";
+// const reversed = str.split('').reverse();
+// console.log(reversed);
+
+
+
+
+// // TASK D
+
+// function check(string1, string2) {
+
+//  const str1 = string1.split("").sort().join("");
+//  const str2 = string2.split("").sort().join("");
+
+//  return str1 === str2;
+// }
+
+// console.log(check("hasan", "sahna"));
 
 
 
