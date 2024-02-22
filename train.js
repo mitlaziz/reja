@@ -1,11 +1,54 @@
+// Task F
+//def 
+function findDoublers(str) {
+    // Bo'sh qatorni tekshiramiz
+    if (str === "") {
+      return false;
+    }
+    
+    // Harflarni ajratib olish uchun bo'sh qator
+    // ichidagi harflarni arrayga aylantiramiz
+    const letters = str.split("");
+  
+    // Harflarni to'plab borish uchun object yaratamiz
+    const letterCounts = {};
+  
+    // Harflarni sanash
+    letters.forEach(letter => {
+      if (letterCounts[letter]) {
+        letterCounts[letter]++;
+      } else {
+        letterCounts[letter] = 1;
+      }
+    });
+  
+    // Agar har qanday harf kamida 2 marta qatnashgan bo'lsa, true qaytar
+    for (const letter in letterCounts) {
+      if (letterCounts[letter] >= 2) {
+        return true;
+      }
+    }
+  
+    // Boshqa halatlarda, false qaytar
+    return false;
+  }
+  
+  // Masalani tekshirish
+  console.log(findDoublers("hello")); // true
+  console.log(findDoublers("world")); // false
+
+   
+
+
+
 // Task E
 //2-usul
-let string = "Devex";
-let newString = '';
-for(i = string.length-1; i >= 0; i--) {
-    newString += string[i];
-}
-console.log(newString);
+// let string = "Devex";
+// let newString = '';
+// for(i = string.length-1; i >= 0; i--) {
+//     newString += string[i];
+// }
+// console.log(newString);
 
 //1-usul
 //const str = "uzbekistan";
