@@ -1,41 +1,64 @@
-// Task F
-//def 
-function findDoublers(str) {
-    // Bo'sh qatorni tekshiramiz
-    if (str === "") {
-      return false;
-    }
-    
-    // Harflarni ajratib olish uchun bo'sh qator
-    // ichidagi harflarni arrayga aylantiramiz
-    const letters = str.split("");
-  
-    // Harflarni to'plab borish uchun object yaratamiz
-    const letterCounts = {};
-  
-    // Harflarni sanash
-    letters.forEach(letter => {
-      if (letterCounts[letter]) {
-        letterCounts[letter]++;
-      } else {
-        letterCounts[letter] = 1;
-      }
-    });
-  
-    // Agar har qanday harf kamida 2 marta qatnashgan bo'lsa, true qaytar
-    for (const letter in letterCounts) {
-      if (letterCounts[letter] >= 2) {
-        return true;
-      }
-    }
-  
-    // Boshqa halatlarda, false qaytar
-    return false;
+//Task G
+function maxIndexFind(arr) {
+  if (arr.length === 0) {
+    return -1; 
   }
+
+  let maxIndex = 0;
+  let maxValue = arr[0]
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > maxValue) {
+      maxValue = arr[i];
+      maxIndex = i;
+    }
+  } 
+  return maxIndex;
+}
+
+let arr = [2, 4, 7, 15, 8, 10];
+console.log('max index topish:', maxIndexFind(arr));
+
+
+
+// // Task F
+// //def 
+// function findDoublers(str) {
+//     // Bo'sh qatorni tekshiramiz
+//     if (str === "") {
+//       return false;
+//     }
+    
+//     // Harflarni ajratib olish uchun bo'sh qator
+//     // ichidagi harflarni arrayga aylantiramiz
+//     const letters = str.split("");
   
-  // Masalani tekshirish
-  console.log(findDoublers("hello")); // true
-  console.log(findDoublers("world")); // false
+//     // Harflarni to'plab borish uchun object yaratamiz
+//     const letterCounts = {};
+  
+//     // Harflarni sanash
+//     letters.forEach(letter => {
+//       if (letterCounts[letter]) {
+//         letterCounts[letter]++;
+//       } else {
+//         letterCounts[letter] = 1;
+//       }
+//     });
+  
+//     // Agar har qanday harf kamida 2 marta qatnashgan bo'lsa, true qaytar
+//     for (const letter in letterCounts) {
+//       if (letterCounts[letter] >= 2) {
+//         return true;
+//       }
+//     }
+  
+//     // Boshqa halatlarda, false qaytar
+//     return false;
+//   }
+  
+//   // Masalani tekshirish
+//   console.log(findDoublers("hello")); // true
+//   console.log(findDoublers("world")); // false
 
    
 
